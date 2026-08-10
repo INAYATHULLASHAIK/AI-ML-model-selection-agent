@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI/ML Model Selection Agent</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>AI/ML Model Selection Agent</h1>
+      <p>Upload a CSV, select the target column, and let the agent compare suitable ML models.</p>
+    </header>
+
+    <section class="card">
+      <h2>1. Upload Dataset</h2>
+      <input id="file" type="file" accept=".csv">
+      <button id="analyzeBtn">Analyze Dataset</button>
+      <div id="message"></div>
+    </section>
+
+    <section id="datasetSection" class="card hidden">
+      <h2>2. Dataset Analysis</h2>
+      <div id="datasetStats" class="stats"></div>
+      <label for="target">Target Column</label>
+      <select id="target"></select>
+      <button id="trainBtn">Run Model Selection</button>
+      <div class="table-wrap">
+        <table id="preview"></table>
+      </div>
+    </section>
+
+    <section id="resultsSection" class="hidden">
+      <div class="card">
+        <h2>3. Recommendation</h2>
+        <div id="recommendation"></div>
+      </div>
+
+      <div class="card">
+        <h2>4. Model Comparison</h2>
+        <div class="table-wrap"><table id="resultsTable"></table></div>
+      </div>
+
+      <div class="card">
+        <h2>5. Visualizations</h2>
+        <div id="chart1" class="chart"></div>
+        <div id="chart2" class="chart"></div>
+        <div id="chart3" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <button id="downloadBtn">Download Report</button>
+      </div>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
